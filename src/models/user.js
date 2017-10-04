@@ -13,7 +13,15 @@ export default {
         ...state,
         ...action.data,
       };
-    }
+    },
+    logout(state, action) {
+      return {
+        ...state,
+        account: null,
+        token: null,
+        name: null,
+      };
+    },
   },
   effects: {
     *POST_login(action, { call, put }) {

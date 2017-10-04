@@ -23,14 +23,18 @@ class Home extends Component {
         Press Cmd+R to reload,{'\n'}
         Cmd+D or shake for dev menu
       </Text>
-      <Button title="Login" onPress={this.handlePressLogin} />
+      { !token ? <Button title="Login" onPress={this.handlePressLogin} /> : null }
       { account ? <Text>account: {account}</Text> : null }
       { name ? <Text>name: {name}</Text> : null }
       { token ? <Text>token: {token}</Text> : null }
+      { token ? <Button title="Logout" onPress={this.handlePressLogout} /> : null }
     </View>
   }
   handlePressLogin = () => {
     this.props.dispatch({ type: 'user/POST_login' });
+  }
+  handlePressLogout = () => {
+    this.props.dispatch({ type: 'user/logout' });
   }
 }
 
