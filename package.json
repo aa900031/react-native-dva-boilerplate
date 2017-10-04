@@ -4,8 +4,8 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "rename": "react-native-rename"
+		"test": "jest",
+		"rename": "react-native-rename"
 	},
 	"dependencies": {
 		"dva-no-router": "^1.0.2",
