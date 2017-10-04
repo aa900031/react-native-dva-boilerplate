@@ -6,12 +6,10 @@ import {
   View,
   Button,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 class Home extends Component {
   render() {
-    const {
-      account, name, token
-    } = this.props.user;
     return <View style={styles.container}>
       <Text style={styles.welcome}>
         Welcome to React Native + Dva.js!
@@ -23,17 +21,11 @@ class Home extends Component {
         Press Cmd+R to reload,{'\n'}
         Cmd+D or shake for dev menu
       </Text>
-      { !token ? <Button title="Login" onPress={this.handlePressLogin} /> : <Button title="Logout" onPress={this.handlePressLogout} /> }
-      { account ? <Text>account: {account}</Text> : null }
-      { name ? <Text>name: {name}</Text> : null }
-      { token ? <Text>token: {token}</Text> : null }
+      <Button title="Login" onPress={this.handlePressLogin} />
     </View>
   }
   handlePressLogin = () => {
-    this.props.dispatch({ type: 'user/POST_login' });
-  }
-  handlePressLogout = () => {
-    this.props.dispatch({ type: 'user/logout' });
+    Actions.login();
   }
 }
 
@@ -56,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(state => state)(Home);
+export default connect()(Home);

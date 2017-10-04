@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import dva from 'dva-no-router';
 
+import router from './router';
 import user from './models/user';
-import Home from './home';
 
 class App extends Component {
   app = dva();
@@ -11,7 +11,7 @@ class App extends Component {
   };
   componentDidMount() {
     this.app.model(user);
-    this.app.router(() => <Home />);
+    this.app.router(router);
 
     this.setState({ init: true });
   }
