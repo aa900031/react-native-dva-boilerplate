@@ -23,11 +23,10 @@ class Home extends Component {
         Press Cmd+R to reload,{'\n'}
         Cmd+D or shake for dev menu
       </Text>
-      { !token ? <Button title="Login" onPress={this.handlePressLogin} /> : null }
+      { !token ? <Button title="Login" onPress={this.handlePressLogin} /> : <Button title="Logout" onPress={this.handlePressLogout} /> }
       { account ? <Text>account: {account}</Text> : null }
       { name ? <Text>name: {name}</Text> : null }
       { token ? <Text>token: {token}</Text> : null }
-      { token ? <Button title="Logout" onPress={this.handlePressLogout} /> : null }
     </View>
   }
   handlePressLogin = () => {
