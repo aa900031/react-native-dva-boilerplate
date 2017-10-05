@@ -4,6 +4,7 @@ A React Native boilerplate with dva.js and another routers
 ## Branch
 - master: react-native + dva.js
 - react-native-router-flux: react-native + react-native-router-flux + dva.js
+- react-navigation: react-native + react-navigation + dva.js
 
 ## Start
 ```bash
