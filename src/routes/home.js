@@ -6,12 +6,13 @@ import {
   View,
   Button,
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 
 class Home extends Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
   render() {
-    const {
-      account, name, token
-    } = this.props.user;
     return <View style={styles.container}>
       <Text style={styles.welcome}>
         Welcome to React Native + Dva.js!
@@ -23,17 +24,11 @@ class Home extends Component {
         Press Cmd+R to reload,{'\n'}
         Cmd+D or shake for dev menu
       </Text>
-      { !token ? <Button title="Login" onPress={this.handlePressLogin} /> : <Button title="Logout" onPress={this.handlePressLogout} /> }
-      { account ? <Text>account: {account}</Text> : null }
-      { name ? <Text>name: {name}</Text> : null }
-      { token ? <Text>token: {token}</Text> : null }
+      <Button title="Login" onPress={this.handlePressLogin} /> 
     </View>
   }
   handlePressLogin = () => {
-    this.props.dispatch({ type: 'user/POST_login' });
-  }
-  handlePressLogout = () => {
-    this.props.dispatch({ type: 'user/logout' });
+    this.props.dispatch(NavigationActions.navigate({ routeName: 'Login' }));
   }
 }
 

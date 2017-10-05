@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import dva from 'dva-no-router';
 
+import Router, { routerReducer } from './router';
 import user from './models/user';
-import Home from './home';
 
 class App extends Component {
-  app = dva();
+  app = dva({
+    extraReducers: {
+      router: routerReducer,
+    },
+  });
   state = {
     init: false,
   };
   componentDidMount() {
     this.app.model(user);
-    this.app.router(() => <Home />);
+    this.app.router(() => <Router/>);
 
     this.setState({ init: true });
   }
