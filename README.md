@@ -9,9 +9,9 @@ A React Native boilerplate with dva.js and another routers
 ## Start
 ```bash
 # 1. Clone this project
-git clone https://github.com/aa900031/react-native-dva-boilerplate
+git clone https://gitlab.com/aa900031/react-native-dva-boilerplate.git
 # or specify branch
-git clone https://github.com/aa900031/react-native-dva-boilerplate -b BRANCH_NAME --single-branch
+git clone https://gitlab.com/aa900031/react-native-dva-boilerplate.git -b BRANCH_NAME --single-branch
 
 # 2. Entry the project
 cd PROJECT_FOLDER
